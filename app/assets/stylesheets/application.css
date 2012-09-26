@@ -1,0 +1,291 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+html, body { margin:0; padding:0; background:#FFFFFF; }
+body, td, th, pre, code, select, option, input, textarea { font-family:"lucida grande",tahoma,verdana,arial,sans-serif; font-size:10pt; }
+#dhead { margin:0 0 0 -10px; padding:0; line-height:80px; font-size:18pt; font-family:Georgia; /*text-shadow:1px 1px 2px gray;*/ border-bottom:10px solid #73796B; margin-bottom:0.5em; text-align:center; width:820px; background:black; color:white; -moz-border-radius:5px 5px 0 0; border-radius:5px 5px 0 0; -webkit-border-radius:5px 5px 0 0; text-indent:-2000px; background:black url("logo.png") center center no-repeat; }
+h1 { margin:0 0 0 0px; padding:0; font-size:14pt; font-family:Georgia; /*text-shadow:1px 1px 2px gray;*/ margin-bottom:1em; text-align:center; text-transform:uppercase;}
+h2 { margin:0.5em 0 0.5em 0; padding:0.5em 0 0.5em 20px; font-size:12pt; font-family:Georgia; color:white; background: #6495ed; text-shadow:1px 1px 2px gray; clear:both;  }
+h3 { margin:0; padding:0.5em 0 0.5em 0; font-size:11.5pt; font-family:Georgia; color:gray; clear:both; }
+p { padding:0em 0 0.5em 0; margin:0; line-height:1.8em; }
+p.meta { font-size:9pt; color:gray; margin-top:-5px; }
+.arguments .tp, p code { color:green; padding:0 4px; font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; font-weight: normal !important; font-style: normal !important; font-size:13px; }
+#description, .panel { margin:0 20px; }
+#container { width:800px; margin:10px auto; overflow:hidden; background:white; padding:0 10px 10px 10px; -moz-border-radius:5px; border-radius:5px; -webkit-border-radius:5px; -moz-box-shadow: 0px 0px 10px #000; }
+.demo { width:255px; float:left; margin:0; border:1px solid gray; background:white; overflow:auto; }
+.code { width:490px; float:right; margin:0 0 10px 0; border:1px solid gray; font-size:12px; }
+pre { display:block; }
+.code_f { border:1px solid gray; margin-bottom:1em; }
+.syntaxhighlighter { margin:0 0 0 0 !important; padding:0 !important; line-height:18px; }
+
+.log { padding:4px; border:1px solid gray; margin-bottom:1em; }
+.button { display:block; margin-bottom:0.5em; }
+.arguments { margin:0em 1em; padding:0; list-style-type:none; }
+.arguments .tp { padding:0 0 0 0; float:left; width:70px;  }
+.arguments strong { display:block; }
+
+.api h3 { margin-left:-10px; color:black; font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; font-weight: normal !important; font-size:14px; margin-top:2em; border-top:1px solid; width:780px; }
+.api .arguments li strong {  color:black; font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; font-weight: normal !important; font-size:13px; }
+
+.configuration h3 { margin-left:-10px; color:black; font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; font-weight: normal !important; font-size:14px; margin-top:2em; border-top:1px solid; width:780px; }
+.note { background:#ffffee; padding:10px 20px; border:1px solid #333; -moz-border-radius:5px; border-radius:5px; -webkit-border-radius:5px; margin-bottom:15px; text-align:center; font-weight:bold; }
+
+.plugins, .demos { margin:0 auto 20px auto; }
+
+ul.columns { list-style-type:none; width:700px; margin:0px auto 15px auto; padding:0; overflow:hidden; }
+ul.columns li { float:left; margin:0; padding:0 0 0 0px; line-height:18px; width:345px; }
+ul.demos li, ul.plugins li { width:220px; text-align:left; padding:5px 0; }
+ul.demos li a, ul.plugins li a { text-decoration:none; color:#3B5998; }
+ul.demos li a:hover, ul.plugins li a:hover { text-decoration:underline; }
+ul.plugins li p { text-align:left; font-size:9px; color:#333; margin:0 5px 0 0; }
+
+ul.demos li { width:auto; }
+
+.demo, .demo input, .jstree-dnd-helper, #vakata-contextmenu { font-size:10px; font-family:Verdana; }
+
+#demo_body .demo, #demo_body .code { width:auto; float:none; clear:both; margin:10px auto; }
+#demo_body .code { margin-bottom:20px; }
+
+ul.jstree { width:700px; margin:0px auto 15px auto; padding:0; }
+ul.jstree li { margin:0; padding:2px 0; }
+ul.jstree li a { color:#3B5998; text-decoration:underline; }
+
+nav {
+  float: right;
+  margin-right: 50px;
+  font-family: Arial;
+  font-size: 14pt;
+  border-radius: 5px;
+}
+
+nav {
+  background-color: white;
+  padding: 0 0.7em;
+  white-space: nowrap;
+  color: Black;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em 0;
+  
+  margin-left: 10px;
+}
+
+nav ul li a {
+  padding: 0 5px;
+  font-weight: bold;
+  color: Black;
+  text-decoration: none;
+}
+
+nav ul li a:visited {
+  
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+#user_nav{
+	color: #6495ed;
+	float:right;
+	padding-right: 50px;
+	font-size: 12pt;
+	margin-left:0px;
+	}
+	
+#user_nav a:hover{
+	color: white;
+	background-color: #6495ed;
+	}	
+	#user_nav a{
+	color:#6495ed;
+	background-color: white;
+	}	
+
+	
+.date {
+	padding-left: 10px;
+	}	
+	
+.content{
+	width: 600px;
+	margin : auto;
+	}	
+.content table{
+	margin-bottom:20px;
+	
+	}	
+.content table a{
+	color:#6495ed;
+	background-color: white;	
+	}	
+
+.content table a:hover{
+	color:white;
+	background-color: #6495ed;
+	}
+.content p{	
+	margin-left: 400px; 	
+	}
+	
+.topic a{ 
+	padding-left: 30px;
+	font-size:12pt;}
+	
+.field {
+	size: 400px;
+	}	
+
+.ava  img{
+	height: 60px;
+	}
+	
+	
+	#q_id span {
+		width:700px;
+		margin-left: 555px;
+		}
+		
+	.comment{
+		width: 500px;
+		position: fixed; 
+		bottom: 50%;
+		left: 30%;
+		display: none;
+		background-color: #6495ed;
+		border-radius: 10px;		
+		color:white;
+		font-size: 14pt;
+		}	
+	
+	.comment img {
+		float: left;
+		padding-left: 20px;}
+	
+	.com_head {
+		background-color: navy;
+		width: 500px;
+		font-size: 14pt;}
+	
+	.com_head h2{
+		 margin:0.5em 0 0.5em 0; 
+		 padding:0.5em 0 0.5em 175px; 
+		 font-size:12pt; 
+		 font-family:Georgia; 
+		 color:white; 
+		 background: navy; 
+		 text-shadow:1px 1px 2px gray;
+		 clear:both; 
+		}	
+		
+		.com_head h2 span{
+			margin-left: 100px;
+			
+			}
+		
+		.com_head span{		
+		font-size: 14pt;}
+		
+		#close span {
+			height: 150%;}
+		
+		span#close:hover{
+			background-color: white;
+			color: navy;
+			cursor: pointer;
+			}
+			
+			
+		.clearfix {
+			clear:both;
+			}
+			
+		 span.back a{
+			position: fixed;
+			bottom: 5%;
+			left: 2%;
+			}	
+			
+		 span.back a:hover{
+			background-color: navy;
+			color: white;
+			}		
+			
+			span.up a{
+			position: fixed;
+			bottom: 5%;
+			left: 7%;
+			}	
+			
+		 span.up a:hover{
+			background-color: navy;
+			color: white;
+			}		
+			
+	     span.com {
+			 margin-left: 300px;
+			 }
+			 
+		span.com:hover{
+			cursor: pointer;
+			background-color: #6495ed;
+			color: white;
+			border-radius: 3px;
+			} 
+			
+			span.inc:hover{
+			cursor: pointer;
+				} 
+			span.dec:hover{
+			cursor: pointer;
+				} 
+				
+		.comments {
+			width: 400px;
+			border:1px solid gray;
+			border-radius: 12px;
+			min-height: 150px;
+			margin-bottom: 5px;
+			margin-left: 200px;
+			
+			}		
+			
+		.comments p{
+			margin-left: 1px;
+			}	
+		.comments p img{
+			float: left;
+			margin-right: 4px;
+			}		
+			
+		.cloud{
+			color: navy;
+			width: 40%;
+			margin-left:auto;
+			margin-right:auto;
+			font-family: 'courier new';
+			}	
+		
+		.top {
+			font-size: 16pt;}	
+		.tag {
+			font-size :12pt;
+			}	

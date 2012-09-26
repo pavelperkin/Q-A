@@ -1,0 +1,122 @@
+<p id="notice"><%= notice %></p>
+<a name="up"></a>
+
+<h2>  
+  <%= @quest.theme %>
+  <span id='q_id' align: 'right'><%= @quest.id %></span>
+</h2>
+
+
+
+<table class='content'>
+  <tr>
+    <td>
+      <%= gravatar_image_tag User.find(@quest.user_id).email %>
+    </td>
+    <td>
+      <b>
+        <%= @quest.body %>
+      </b>
+    </td>
+  </tr>
+  <tr>
+    <td> <b>
+      <% if User.find(@quest.user_id).nickname!=nil %>
+        <%= User.find(@quest.user_id).nickname %>
+      <% else %>
+        <%= User.find(@quest.user_id).email %>
+      <% end %>  </b>
+    </td>
+    <td>
+       <p> <span>Likes: </span>
+          <span id='like_c'><%= @quest.likes %></span>
+        <% if current_user %>
+          <input id='like' type="button" value='+1'  />
+        <% else %>
+          <h2>Only authorized users can like the questions </h2>
+        <% end %></p>
+    </td>
+  </tr>
+</table>
+
+<div class='content'>
+
+<% @quest.answers.sort_by(&:rank).reverse.each do |answer| %>
+<hr>
+<table  class= 'ava'>
+  <tr>
+    <td><%= gravatar_image_tag User.find(answer.user_id).email %></td>
+    <td><%= answer.data %></td>
+  </tr>
+  <tr> 
+    <td>
+      <% if User.find(answer.user_id).nickname!=nil %>
+        <%= User.find(answer.user_id).nickname %>
+        <% else %>
+        <%= User.find(answer.user_id).email %>
+      <% end %></td>
+    <td>Rank <span class='rank <%= answer.id %> '><%= answer.rank %> 
+    <span class= 'inc <%= answer.id %> '>+</span> 
+    <span>|</span> 
+    <span class= 'dec <%= answer.id %> '>-</span></span> 
+    <span class='com' id= '<%= answer.id %> '>New comment</span></td>
+  </tr>  
+</table>
+<hr>
+        <% answer.comments.each do |comment| %>
+        <div class='comments'>
+         <h2><% if User.find(comment.user_id).nickname %>
+                          <%= User.find(comment.user_id).nickname %>
+                      <% else %>
+                          <%= User.find(comment.user_id).email %>
+                      <% end %>  </h2>
+          <p><%= gravatar_image_tag User.find(comment.user_id).email %>
+              <%= comment.body %>
+          </p>
+           
+        </div>
+        
+        <div class='clearfix'></div>
+        <%end%>
+<% end %>
+
+<% if current_user %>
+<hr>
+<h2>Your answer</h2>
+<textarea id='answer' rows="10" cols="95" aligin= center >
+</textarea>
+<input id='answ' type="button" value='Send answer'  />
+
+
+
+<% else %>
+<h2>Only authorized users can answer and comment the questions </h2>
+<% end %>
+
+</div>
+
+<div align="center" class='comment'>
+  <div class='com_head'><h2>New comment <span id='close'>close</span></h2> </div>
+  <%if current_user%>
+    <%= gravatar_image_tag current_user.email %>
+  <%end%> 
+  <br>
+  <span><% if (current_user)&&(current_user.nickname) %>
+        <%= current_user.nickname %>
+        <% elsif current_user %>
+        <%= current_user.email %>
+      <% end %></span>
+      <div class='clearfix'></div>
+      <br>
+  <textarea id='comt' rows="5" cols="75" aligin= center autofocus >
+  </textarea>
+  <input id='add_com' type="button" value='OK', size= 30px/> 
+</div>
+
+<span class='back'>
+<%= link_to 'Back', quests_path %>
+</span>
+
+<span class='up'>
+<a href='#up'>Up</a>
+</span>

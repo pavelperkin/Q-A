@@ -1,0 +1,78 @@
+<div id="user_nav">
+<%= link_to 'New Question', new_quest_path %>
+<br>
+<a name="up"></a>
+<br>
+</div>
+<h2>Q&A</h2>
+<div class='cloud'>
+  <span class='top'>google</span>
+  <span class='tag'>andriod</span>
+  <span class='top'>facebook</span>
+  <span class='tag'>twitter</span>
+  <span class='tag'>habrahabr</span>
+  <span class='top'>vkontakte</span>
+  <span class='top'>apple</span>
+  <span class='tag'>ios</span>
+  <span class='top'>htc</span>
+  <span class='tag'>ubuntu</span>
+  <span class='top'>ruby on rails</span>
+</div>
+
+<div class='content'>
+<% @quests.sort_by(&:created_at).reverse.each do |quest| %>
+<table>
+   <tr>
+    <td><%= gravatar_image_tag User.find(quest.user_id).email %></td>
+    <td class='topic'><%= link_to quest.theme, quest    %>
+      <p class='date'>
+        <% if quest.created_at.to_date==Time.now.to_date %>
+          <%= quest.created_at.strftime("%H:%M:%S") %>
+        <%else%>
+          <%= quest.created_at.to_date %>
+        <%end%>  
+      </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+        <%if User.find(quest.user_id).nickname then%>
+          <b><%= User.find(quest.user_id).nickname%></b>
+        <%else%>
+          <b><%= User.find(quest.user_id).email %></b>
+        <%end%>
+    </td>
+    <td>
+      <span>Reviews:</span>
+      <%= quest.review %>
+      <span> |</span>
+      <span>Answers:</span>
+      <%=  quest.answers.count%>
+      <span> |</span>
+      <span>Comments:</span>
+      <%= quest.comments.count %>
+      <span> |</span>
+      <span>Likes:</span>
+      <%= quest.likes %>
+      
+      <%if (current_user)&&(quest.user_id==current_user.id) then %>
+        <span> |</span>
+        <%= link_to 'Edit', edit_quest_path(quest) %>
+        <span> |</span>
+        <%= link_to 'Destroy', quest, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%end%>
+    </td>
+   </tr>    
+   
+   </table>
+<hr>   
+<% end %>
+
+</div>
+
+<br />
+
+
+<span class='up'>
+<a href='#up'>Up</a>
+</span>
