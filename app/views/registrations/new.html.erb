@@ -1,7 +1,6 @@
 <h2>Sign up</h2>
 <br>
 <br><br>
-
 <div align=center>
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -26,5 +25,6 @@
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>
-
+<a href='../../auth/twitter'><img src='../../../../images/twitter.jpg' width="40" height="40" alt="Twitter"></a>
+<h2>Do you want to use your avatar?  <a href='http://ru.gravatar.com/'>Yes</a></h2>
 </div>
