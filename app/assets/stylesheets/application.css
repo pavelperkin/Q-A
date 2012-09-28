@@ -173,7 +173,7 @@ nav ul li a:hover {
 		
 	.comment{
 		width: 500px;
-		min-height: 280px;
+		height: 450px;
 		position: fixed; 
 		bottom: 50%;
 		left: 30%;
