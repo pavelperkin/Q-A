@@ -1,15 +1,63 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Body:</b>
-  <%= @tag.body %>
-</p>
+<h2><%= @tag.body %></h2>
+<div class='content'>
+<% Quest.all.each do |quest| %>
+<% if quest.tags.downcase.include? @tag.body.downcase %>
+<table>
+   <tr>
+    <td><%= gravatar_image_tag User.find(quest.user_id).email %></td>
+    <td class='topic'><%= link_to quest.theme, quest    %>
+      <p class='date'>
+        <% if quest.created_at.to_date==Time.now.to_date %>
+          <%= quest.created_at.strftime("%H:%M:%S") %>
+        <%else%>
+          <%= quest.created_at.to_date %>
+        <%end%>  
+      </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+        <%if User.find(quest.user_id).nickname then%>
+          <b><%= User.find(quest.user_id).nickname%></b>
+        <%else%>
+          <b><%= User.find(quest.user_id).email %></b>
+        <%end%>
+    </td>
+    <td>
+      <span>Reviews:</span>
+      <%= quest.review %>
+      <span> |</span>
+      <span>Answers:</span>
+      <%=  quest.answers.count%>
+      <span> |</span>
+      <span>Comments:</span>
+      <%= quest.comments.count %>
+      <span> |</span>
+      <span>Likes:</span>
+      <%= quest.likes %>
+      
+      <%if (current_user)&&(quest.user_id==current_user.id) then %>
+        <span> |</span>
+        <%= link_to 'Edit', edit_quest_path(quest) %>
+        <span> |</span>
+        <%= link_to 'Destroy', quest, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%end%>
+    </td>
+   </tr>    
+   
+   </table>
+<hr>   
+<% end %>
+<% end %>
 
-<p>
-  <b>Rank:</b>
-  <%= @tag.rank %>
-</p>
+</div>
 
 
-<%= link_to 'Edit', edit_tag_path(@tag) %> |
-<%= link_to 'Back', tags_path %>
+
+
+
+<span class='back'>
+<%= link_to 'Main', quests_path %>
+</span>

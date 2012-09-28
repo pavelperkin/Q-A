@@ -11,11 +11,11 @@
  *= require_self
  *= require_tree .
  */
-html, body { margin:0; padding:0; background:#FFFFFF; }
+html, body { margin:0; padding:0; background-image: url('../images/bcg.jpg');}
 body, td, th, pre, code, select, option, input, textarea { font-family:"lucida grande",tahoma,verdana,arial,sans-serif; font-size:10pt; }
-#dhead { margin:0 0 0 -10px; padding:0; line-height:80px; font-size:18pt; font-family:Georgia; /*text-shadow:1px 1px 2px gray;*/ border-bottom:10px solid #73796B; margin-bottom:0.5em; text-align:center; width:820px; background:black; color:white; -moz-border-radius:5px 5px 0 0; border-radius:5px 5px 0 0; -webkit-border-radius:5px 5px 0 0; text-indent:-2000px; background:black url("logo.png") center center no-repeat; }
+#dhead { margin:0 0 0 -10px; padding:0; line-height:80px; font-size:18pt; font-family:Georgia; /*text-shadow:1px 1px 2px gray;*/ border-bottom:10px solid #73796B; margin-bottom:0.5em; text-align:center; width:820px; color:white; -moz-border-radius:5px 5px 0 0; border-radius:5px 5px 0 0; -webkit-border-radius:5px 5px 0 0; text-indent:-2000px; background:url("logo.png") center center no-repeat; }
 h1 { margin:0 0 0 0px; padding:0; font-size:14pt; font-family:Georgia; /*text-shadow:1px 1px 2px gray;*/ margin-bottom:1em; text-align:center; text-transform:uppercase;}
-h2 { margin:0.5em 0 0.5em 0; padding:0.5em 0 0.5em 20px; font-size:12pt; font-family:Georgia; color:white; background: #6495ed; text-shadow:1px 1px 2px gray; clear:both;  }
+h2 { margin:0.5em 0 0.5em 0; padding:0.5em 0 0.5em 20px; font-size:12pt; font-family:Georgia; color:white; background: navy; text-shadow:1px 1px 2px gray; clear:both;  }
 h3 { margin:0; padding:0.5em 0 0.5em 0; font-size:11.5pt; font-family:Georgia; color:gray; clear:both; }
 p { padding:0em 0 0.5em 0; margin:0; line-height:1.8em; }
 p.meta { font-size:9pt; color:gray; margin-top:-5px; }
@@ -34,10 +34,10 @@ pre { display:block; }
 .arguments .tp { padding:0 0 0 0; float:left; width:70px;  }
 .arguments strong { display:block; }
 
-.api h3 { margin-left:-10px; color:black; font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; font-weight: normal !important; font-size:14px; margin-top:2em; border-top:1px solid; width:780px; }
-.api .arguments li strong {  color:black; font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; font-weight: normal !important; font-size:13px; }
+.api h3 { margin-left:-10px; color:white; font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; font-weight: normal !important; font-size:14px; margin-top:2em; border-top:1px solid; width:780px; }
+.api .arguments li strong {  color:white; font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; font-weight: normal !important; font-size:13px; }
 
-.configuration h3 { margin-left:-10px; color:black; font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; font-weight: normal !important; font-size:14px; margin-top:2em; border-top:1px solid; width:780px; }
+.configuration h3 { margin-left:-10px; color:white; font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; font-weight: normal !important; font-size:14px; margin-top:2em; border-top:1px solid; width:780px; }
 .note { background:#ffffee; padding:10px 20px; border:1px solid #333; -moz-border-radius:5px; border-radius:5px; -webkit-border-radius:5px; margin-bottom:15px; text-align:center; font-weight:bold; }
 
 .plugins, .demos { margin:0 auto 20px auto; }
@@ -70,9 +70,9 @@ nav {
 
 nav {
   background-color: white;
-  padding: 0 0.7em;
+  padding: 5px 0.7em;
   white-space: nowrap;
-  color: Black;
+  
 }
 
 nav ul {
@@ -91,7 +91,7 @@ nav ul li {
 nav ul li a {
   padding: 0 5px;
   font-weight: bold;
-  color: Black;
+  color: white;
   text-decoration: none;
 }
 
@@ -100,24 +100,28 @@ nav ul li a:visited {
 }
 
 nav ul li a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 #user_nav{
-	color: #6495ed;
-	float:right;
+	color: white;
+	float:left;
 	padding-right: 50px;
-	font-size: 12pt;
+	padding-top:25px;
+	font-size: 14pt;
 	margin-left:0px;
+   
 	}
 	
-#user_nav a:hover{
-	color: white;
-	background-color: #6495ed;
-	}	
+	
 	#user_nav a{
-	color:#6495ed;
-	background-color: white;
+	color:white;
+	text-decoration: none;	
+	}	
+	#user_nav a:hover{
+	background-color: #6495ed;	
+	color:white;
+	text-decoration: none;	
 	}	
 
 	
@@ -128,6 +132,9 @@ nav ul li a:hover {
 .content{
 	width: 600px;
 	margin : auto;
+	background-color: white;
+	border:1px solid gray;
+	border-radius: 10px;
 	}	
 .content table{
 	margin-bottom:20px;
@@ -135,7 +142,7 @@ nav ul li a:hover {
 	}	
 .content table a{
 	color:#6495ed;
-	background-color: white;	
+	background-color:white;	
 	}	
 
 .content table a:hover{
@@ -222,6 +229,8 @@ nav ul li a:hover {
 			position: fixed;
 			bottom: 5%;
 			left: 2%;
+			color: white;
+			font-size:12pt;
 			}	
 			
 		 span.back a:hover{
@@ -233,6 +242,8 @@ nav ul li a:hover {
 			position: fixed;
 			bottom: 5%;
 			left: 7%;
+			color: white;
+			font-size:12pt;
 			}	
 			
 		 span.up a:hover{
@@ -276,16 +287,61 @@ nav ul li a:hover {
 			margin-right: 4px;
 			}		
 			
-		.cloud{
+		.cloud{			
 			color: navy;
-			width: 40%;
+			
 			margin-left:auto;
 			margin-right:auto;
 			font-family: 'courier new';
 			}	
+			
+		.cloud a{
+			color: navy;
+			text-decoration: none;
+			}	
 		
 		.top {
-			font-size: 16pt;}	
+			font-size: 18pt;
+			color: navy;}	
 		.tag {
 			font-size :12pt;
+			color: navy;
 			}	
+			
+		.right {
+			padding-top: 50px;
+			float:right;
+			width: 25%;
+			
+			}	
+			
+		
+	.new{
+	padding-right: 50px;
+	margin-top:5px;
+	font-size: 14pt;
+	margin-left:50px;
+
+	}
+	
+	.new a:hover{
+	color: white;
+	background-color: #6495ed;
+	}	
+	.new a{
+	color:#6495ed;	
+	text-decoration: none;
+	
+	}	
+	
+	.logo {
+		padding-left: 1200px;
+		padding-top:5px;
+		margin-bottom:-5px;}
+		
+	.logo img:hover{
+		text-decoration: none;
+		}	
+		
+		
+	.form {margin-left:150px;}	

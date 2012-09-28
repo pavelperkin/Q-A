@@ -1,22 +1,26 @@
-<div id="user_nav">
-<%= link_to 'New Question', new_quest_path %>
-<br>
 <a name="up"></a>
-<br>
-</div>
 <h2>Q&A</h2>
+<div class='right'>
+<div class="new">
+<%= link_to 'New Question', new_quest_path %>
+<% if (current_user)&&(current_user.id<5) %>
+<%= link_to 'New Tag', new_tag_path %>
+<%end%>
+</div>
+<hr><br>
 <div class='cloud'>
-  <span class='top'>google</span>
-  <span class='tag'>andriod</span>
-  <span class='top'>facebook</span>
-  <span class='tag'>twitter</span>
-  <span class='tag'>habrahabr</span>
-  <span class='top'>vkontakte</span>
-  <span class='top'>apple</span>
-  <span class='tag'>ios</span>
-  <span class='top'>htc</span>
-  <span class='tag'>ubuntu</span>
-  <span class='top'>ruby on rails</span>
+  <% Tag.all.each do |tag| %>    
+    <% if tag.rank == 1 %>
+    <span class='top'>
+      <%= link_to tag.body, tag %></td>
+    </span>
+    <% else %>
+    <span class='tag'>
+    <%= link_to tag.body, tag %></td>
+    </span>
+    <% end %>
+<% end %>
+</div>
 </div>
 
 <div class='content'>
@@ -63,6 +67,10 @@
       <%end%>
     </td>
    </tr>    
+   <tr>
+   <td></td>
+   <td><b>Tags: <%= quest.tags %></b></td>
+   </tr>
    
    </table>
 <hr>   

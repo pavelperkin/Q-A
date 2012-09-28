@@ -119,7 +119,6 @@ var global_answ_id;
     data["data"] =text.value ;
     data['a_id']=global_answ_id;
     data['q_id']=($('span#q_id').text());
-    alert(q_id)
     $.ajax({
             type: "POST",
              url: "../comments/save",

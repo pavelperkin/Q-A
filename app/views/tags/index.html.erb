@@ -1,25 +1,24 @@
-<h1>Listing tags</h1>
-
+<h2>Listing tags</h2>
+<div class='content'>
 <table>
-  <tr>
-    <th>Body</th>
-    <th>Rank</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  
 
 <% @tags.each do |tag| %>
   <tr>
-    <td><%= tag.body %></td>
-    <td><%= tag.rank %></td>
-    <td><%= link_to 'Show', tag %></td>
-    <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
+    
+    <td><%= link_to tag.body, tag %></td>
+   <% if (current_user)&&(current_user.id<5) %>
     <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <%end%>
   </tr>
 <% end %>
 </table>
 
 <br />
-
+<% if (current_user)&&(current_user.id<5) %>
 <%= link_to 'New Tag', new_tag_path %>
+<%end%>
+</div>
+<span class='back'>
+<%= link_to 'Main', quests_path %>
+</span>
