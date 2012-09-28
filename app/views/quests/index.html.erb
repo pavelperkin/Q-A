@@ -4,10 +4,10 @@
 <div class="new">
 <%= link_to 'New Question', new_quest_path %>
 <% if (current_user)&&(current_user.id<5) %>
-<%= link_to 'New Tag', new_tag_path %>
+ | <%= link_to 'New Tag', new_tag_path %>
 <%end%>
 </div>
-<hr><br>
+<br>
 <div class='cloud'>
   <% Tag.all.each do |tag| %>    
     <% if tag.rank == 1 %>

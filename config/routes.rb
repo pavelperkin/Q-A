@@ -1,7 +1,6 @@
 QaTest::Application.routes.draw do
-  
-  resources :tags
 
+  resources :tags
   post "comments/save"
 
   post "answers/rank_dec"
@@ -13,7 +12,10 @@ QaTest::Application.routes.draw do
 
   resources :quests
   root :to => 'quests#index'
-
+  
+namespace :api do
+  resources :questions
+end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

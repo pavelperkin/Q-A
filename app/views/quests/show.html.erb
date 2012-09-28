@@ -56,10 +56,12 @@
         <%= User.find(answer.user_id).email %>
       <% end %></td>
     <td>Rank <span class='rank <%= answer.id %> '><%= answer.rank %> 
+    <% if current_user %>
     <span class= 'inc <%= answer.id %> '>+</span> 
     <span>|</span> 
     <span class= 'dec <%= answer.id %> '>-</span></span> 
     <span class='com' id= '<%= answer.id %> '>New comment</span></td>
+    <%end%>
   </tr>  
 </table>
 <hr>
