@@ -1,26 +1,26 @@
 <a name="up"></a>
 <h2>Q&A</h2>
 <div class='right'>
-<div class="new">
-<%= link_to 'New Question', new_quest_path %>
-<% if (current_user)&&(current_user.id<5) %>
- | <%= link_to 'New Tag', new_tag_path %>
-<%end%>
-</div>
-<br>
-<div class='cloud'>
-  <% Tag.all.each do |tag| %>    
-    <% if tag.rank == 1 %>
-    <span class='top'>
+  <div class="new">
+    <%= link_to 'New Question', new_quest_path %>
+    <% if (current_user)&&(current_user.id<5) %>
+     | <%= link_to 'New Tag', new_tag_path %>
+    <%end%>
+  </div>
+  <br>
+  <div class='cloud'>
+    <% Tag.all.each do |tag| %>    
+      <% if tag.rank == 1 %>
+      <span class='top'>
+        <%= link_to tag.body, tag %></td>
+      </span>
+      <% else %>
+      <span class='tag'>
       <%= link_to tag.body, tag %></td>
-    </span>
-    <% else %>
-    <span class='tag'>
-    <%= link_to tag.body, tag %></td>
-    </span>
-    <% end %>
-<% end %>
-</div>
+      </span>
+      <% end %>
+  <% end %>
+  </div>
 </div>
 
 <div class='content'>

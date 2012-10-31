@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :nickname
   # attr_accessible :title, :body
   
+  validates :email, :presence => true,
+					 :format => {:with => /([-a-z0-9_.+]+@[-a-z0-9.]+\.[-a-z0-9]{2,8})$/} 
+	
   def apply_omniauth(omniauth)
     authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
   end

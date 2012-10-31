@@ -44,6 +44,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'gravatar_image_tag'
 gem 'nifty-generators'
+gem 'rspec-rails', '2.6.1'
+gem 'webrat', '0.7.1'
 
-gem "mocha", :group => :test
 
