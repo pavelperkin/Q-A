@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class QuestsControllerTest < ActionController::TestCase
+  fixtures :quests
   setup do
     @quest = quests(:one)
   end

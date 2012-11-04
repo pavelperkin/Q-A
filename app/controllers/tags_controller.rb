@@ -14,7 +14,6 @@ class TagsController < ApplicationController
   # GET /tags/1.json
   def show
     @tag = Tag.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @tag }
@@ -25,7 +24,6 @@ class TagsController < ApplicationController
   # GET /tags/new.json
   def new
     @tag = Tag.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @tag }

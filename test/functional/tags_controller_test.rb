@@ -23,12 +23,8 @@ class TagsControllerTest < ActionController::TestCase
 
     assert_redirected_to tag_path(assigns(:tag))
   end
-
-  test "should show tag" do
-    get :show, id: @tag
-    assert_response :success
-  end
-
+  
+  
   test "should get edit" do
     get :edit, id: @tag
     assert_response :success
@@ -43,7 +39,6 @@ class TagsControllerTest < ActionController::TestCase
     assert_difference('Tag.count', -1) do
       delete :destroy, id: @tag
     end
-
     assert_redirected_to tags_path
   end
 end

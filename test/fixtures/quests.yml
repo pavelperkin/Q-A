@@ -2,12 +2,12 @@
 
 one:
   user_id: 1
-  theme: MyString
-  body: MyString
-  tags: MyString
-  likes: 1
-  answers: 1
-  comments: 1
+  theme: theme
+  body: body
+  tags: tags
+  likes: 0
+  answers: 0
+  comments: 0
 
 two:
   user_id: 1

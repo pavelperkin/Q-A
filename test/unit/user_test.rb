@@ -45,7 +45,7 @@ class UserTest < ActiveSupport::TestCase
 		@newuser.nickname='User'
 		@newuser.password='newpasword'
 		@newuser.password_confirmation='newpasword'
-		assert @newuser.save
+		assert !@newuser.save
 	end
   
   
