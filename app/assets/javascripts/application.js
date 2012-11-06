@@ -13,60 +13,51 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-var global_answ_id;
-
- $(document).ready(function() {  
-
+var global_answ_id;  //global variable for answer_id
+ $(document).ready(function() {  //function will be call when document will be ready
+ global_q_id=document.getElementById('q_id').className;//global variable for quest_id
     
-   $("#answ").click(function(){    
-    text=document.getElementById('answer');
-    q_id=document.getElementById('q_id'); 
-    data = {}
-    data["data"] =text.value 
-    data['q_id']=($('span#q_id').text())
-    $.ajax({
-            type: "POST",
-             url: "../answers/save",
-            data: data,
-            async:false,
-            success: function(msg){              
-              console.log(msg); 
+   $("#answ").click(function(){    // add new answer function
+    text=document.getElementById('answer');    // get text of the answer from textarea
+    data = {} // clean data
+    data["data"] =text.value //push answer to data 
+    data['q_id']=global_q_id //push  the quest_id to data
+	$.ajax({ //ajax request
+            type: "POST",  //request type
+             url: "../answers/save",  //destination
+            data: data, //data
+            async:false, 
+            success: function(msg){ //callback function              
+              console.log(msg); // print response to console
             }
         });
-        alert('Thank you for your answer!');
-        location.reload();
+        alert('Thank you for your answer!'); //print the message for user
+        location.reload(); //update the page
    })   
    
    
-   $("#like").click(function(){       
-    q_id=document.getElementById('q_id'); 
-    data = {}    
-    data['q_id']=($('span#q_id').text())
-    console.log(data['q_id'])
+   $("#like").click(function(){   // +1 for quest rank    
+    data = {}  // clean data  
+    data['q_id']=global_q_id 
     $.ajax({
             type: "POST",
              url: "like",
             data: data,    
             async:false,  
-            success: function(msg){   
-              $('span#like_c').text(msg.data)
+            success: function(msg){   //callback
+              $('span#like_c').text(msg.data) //show new rank of quest
               console.log(msg);
             }
         });
-        $("#like").css('display', 'none');
+        $("#like").css('display', 'none');//hide "+1" button
        
    })   
    
-   $("span.com").click(function(){    
-     $("div.comment").css('display', 'block');
-     $("div.comment").css('height', '40%');
-     $("div.comment").css('opacity', '1');
-     global_answ_id=this.id
-     
-     return global_answ_id
-     
+   $("span.com").click(function(){  
+	 cssObj = {'display':'block', 'height':'40%', 'opacity':'1'}   
+     $("div.comment").css(cssObj);
+     return global_answ_id=this.id     
    })  
-
    
    $("#close").click(function(){ 
          $("div.comment").animate({
@@ -114,11 +105,10 @@ var global_answ_id;
 
   $("#add_com").click(function(){    
     text=document.getElementById('comt');
-    q_id=document.getElementById('q_id');
     data = {}
     data["data"] =text.value ;
     data['a_id']=global_answ_id;
-    data['q_id']=($('span#q_id').text());
+    data['q_id']=global_q_id;
     $.ajax({
             type: "POST",
              url: "../comments/save",
@@ -130,9 +120,5 @@ var global_answ_id;
         });
         alert('Thank you for your comment!');
         location.reload();
-   })   
-   
-   
-   
-   
+   })      
  });
