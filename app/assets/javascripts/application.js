@@ -70,18 +70,18 @@ var global_answ_id;  //global variable for answer_id
    
    
    $('span.inc').click(function(){ //increment answer rank
-    data = {}    
-    data['a_id']=this.className.replace("inc", "")//get answer_id
+    data = {}    ;
+    data['a_id']=this.className.replace("inc", "");//get answer_id
+	data['action_type']='inc';
         $.ajax({
             type: "POST",
-             url: "../answers/rank_inc",
+             url: "../answers/rank",
             data: data,    
             async:false,  
             success: function(msg){                 
               str='span.'+msg.id;      
               $(str).text(msg.data);//update rank
-             
-            }
+             }
         });
        
    
@@ -89,10 +89,11 @@ var global_answ_id;  //global variable for answer_id
    
       $('span.dec').click(function(){ //decrement answer rank
     data = {}    
-    data['a_id']=this.className.replace("dec", "")
+    data['a_id']=this.className.replace("dec", "");
+	data['action']='dec';
         $.ajax({
             type: "POST",
-             url: "../answers/rank_dec",
+             url: "../answers/rank",
             data: data,    
             async:false,  
             success: function(msg){                 

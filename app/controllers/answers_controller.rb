@@ -11,34 +11,28 @@ class AnswersController < ApplicationController
     @response = {:status => "true"} 
     render json: @response
   end
-  #FIX!!!!
-  def rank_inc
+  
+  def rank
     @answer_params = {
         :id => params[:a_id]  
-       }
+       }	   
         @answer= Answer.find(params[:a_id] )
-      @answer.rank+=1
+			if params[:action_type]=='inc' then
+				@answer.rank+=1
+			else
+			   @answer.rank-=1
+			end
       @answer.save()
       @response = {:status => "true",
                            :data => @answer.rank ,
-                           :id => @answer.id.to_s}
+                           :id => @answer.id.to_s,
+						   }
     render json: @response
     
   end
   
   
-  def rank_dec
-    @answer_params = {
-        :id => params[:a_id]  
-       }
-        @answer= Answer.find(params[:a_id] )
-      @answer.rank-=1
-      @answer.save()
-      @response = {:status => "true",
-                           :data => @answer.rank ,
-                           :id => @answer.id.to_s}
-    render json: @response    
-  end  
+
   
   
   

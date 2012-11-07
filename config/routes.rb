@@ -5,8 +5,7 @@ QaTest::Application.routes.draw do
   resources :tags
   post "comments/save"
   match 'auth/:provider/callback' => 'authentications#create'
-  post "answers/rank_dec"
-  post "answers/rank_inc"
+  post "answers/rank"
   post "answers/save"
   post 'quests/like'
 
