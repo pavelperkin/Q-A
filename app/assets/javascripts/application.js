@@ -53,14 +53,14 @@ var global_answ_id;  //global variable for answer_id
        
    })   
    
-   $("span.com").click(function(){  
+   $("span.com").click(function(){  //show commetn form
 	 cssObj = {'display':'block', 'height':'40%', 'opacity':'1'}   
      $("div.comment").css(cssObj);
-     return global_answ_id=this.id     
+     return global_answ_id=this.id     //get answer_id
    })  
    
-   $("#close").click(function(){ 
-         $("div.comment").animate({
+   $("#close").click(function(){ //close comment form without saving comment
+         $("div.comment").animate({ //animation
             height: "-20%",
             opacity: 0,            
           }, 1500, function(){$("div.comment").css('display', 'none');} );
@@ -69,9 +69,9 @@ var global_answ_id;  //global variable for answer_id
    
    
    
-   $('span.inc').click(function(){ 
+   $('span.inc').click(function(){ //increment answer rank
     data = {}    
-    data['a_id']=this.className.replace("inc", "")
+    data['a_id']=this.className.replace("inc", "")//get answer_id
         $.ajax({
             type: "POST",
              url: "../answers/rank_inc",
@@ -79,7 +79,7 @@ var global_answ_id;  //global variable for answer_id
             async:false,  
             success: function(msg){                 
               str='span.'+msg.id;      
-              $(str).text(msg.data);  
+              $(str).text(msg.data);//update rank
              
             }
         });
@@ -87,7 +87,7 @@ var global_answ_id;  //global variable for answer_id
    
    })
    
-      $('span.dec').click(function(){
+      $('span.dec').click(function(){ //decrement answer rank
     data = {}    
     data['a_id']=this.className.replace("dec", "")
         $.ajax({
@@ -97,18 +97,18 @@ var global_answ_id;  //global variable for answer_id
             async:false,  
             success: function(msg){                 
               str='span.'+msg.id;      
-              $(str).text(msg.data);  
+              $(str).text(msg.data);  //update rank
              
             }
         });      
     })
 
-  $("#add_com").click(function(){    
+  $("#add_com").click(function(){    //add comment
     text=document.getElementById('comt');
     data = {}
-    data["data"] =text.value ;
-    data['a_id']=global_answ_id;
-    data['q_id']=global_q_id;
+    data["data"] =text.value ;//get comment text
+    data['a_id']=global_answ_id;//get answer_id
+    data['q_id']=global_q_id;//get quest_id
     $.ajax({
             type: "POST",
              url: "../comments/save",
@@ -118,7 +118,7 @@ var global_answ_id;  //global variable for answer_id
               console.log(msg); 
             }
         });
-        alert('Thank you for your comment!');
-        location.reload();
+        alert('Thank you for your comment!');//message for user
+        location.reload();//update page
    })      
  });

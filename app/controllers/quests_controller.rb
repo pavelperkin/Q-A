@@ -40,12 +40,12 @@ class QuestsController < ApplicationController
   # POST /quests
   # POST /quests.json
   def create
-    @quest = Quest.new(params[:quest])
-    @quest.likes=0
-    @quest.review=0
-    if current_user
+    @quest = Quest.new(params[:quest]) #create new question 
+    @quest.likes=0 # set likes count
+    @quest.review=0 # set reviews count
+    if current_user  # if session has been started
       @quest.user_id=current_user.id
-    else
+    else # as anonymous
       @quest.user_id=1
     end      
     respond_to do |format|
@@ -88,12 +88,12 @@ class QuestsController < ApplicationController
   end
 
   def like
-       @quest_params = {
+       @quest_params = {  # get params from Ajax
         :id => params[:q_id]  
        }
-        @quest= Quest.find(params[:q_id] )
-      @quest.likes+=1
-      @quest.save()
+        @quest= Quest.find(params[:q_id] ) # find a question
+      @quest.likes+=1 # increment likes
+      @quest.save() # update questions params in db
       @response = {:status => "true",
                            :data => @quest.likes }
     render json: @response    
